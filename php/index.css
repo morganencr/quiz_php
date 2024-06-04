@@ -1,0 +1,21 @@
+body{
+    margin: auto;
+    padding:0;
+    height:auto;
+}
+
+#score {
+    display:flex;
+    position: fixed;
+    bottom: 0;
+    right:0;
+}
+
+img {
+    max-width: 35%;
+    height: auto;
+}
+
+h1 {
+    font-family: "Bebas Neue", sans-serif;
+}

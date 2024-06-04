@@ -76,6 +76,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Quiz</title>
     <script>
     function submitForm(event, form) {
@@ -107,8 +111,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
     </script>
 </head>
 <body>
-    <h1>Quiz</h1>
-    <div id="score">Score: <?php echo isset($_SESSION['score']) ? $_SESSION['score'] : 0; ?></div>
+    <h1>SUPER INTERGALACTICAL SPACE QUIZ</h1>
+    <div id="score">
+      <img src="images/score.svg">
+        Score: <?php echo isset($_SESSION['score']) ? $_SESSION['score'] : 0; ?>
+    </div>
         <?php
          if (!empty($questions)) {
             foreach ($questions as $row) {
