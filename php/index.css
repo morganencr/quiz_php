@@ -2,6 +2,12 @@ body{
     margin: auto;
     padding:0;
     height:auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url(./images/background.png);
+    background-repeat: repeat;
+    background-size: contain;
 }
 
 #score {
@@ -12,10 +18,57 @@ body{
 }
 
 img {
-    max-width: 35%;
+    min-width: 300px;
+    max-width: 100%;
     height: auto;
+}
+
+.etoile {
+    min-width:unset;
 }
 
 h1 {
     font-family: "Bebas Neue", sans-serif;
+    font-size: 4.5rem;
+    color: #FFDB12;
+}
+
+.formulaire {
+    width: 50%;
+    display:flex;
+    justify-content: center;
+    margin-bottom: 150px;
+}
+
+form {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+.reinitialisation {
+    display:block;
+}
+
+.reponses-container {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+.reponses {
+    width: 100%;
+    justify-content: center;
+    margin: 5px 0;
+}
+
+label {
+    flex: 1; 
+    text-align: center;
+}
+
+input[type="radio"] {
+    margin-right: 10px; 
 }

@@ -113,7 +113,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
 <body>
     <h1>SUPER INTERGALACTICAL SPACE QUIZ</h1>
     <div id="score">
-      <img src="images/score.svg">
+      <img class="etoile" src="images/score.svg">
         Score: <?php echo isset($_SESSION['score']) ? $_SESSION['score'] : 0; ?>
     </div>
         <?php
@@ -130,17 +130,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
                 $answers = array($bonne_reponse, $mauvaise_reponse1, $mauvaise_reponse2);
                 shuffle($answers);
         ?>
+            <div class="formulaire">
             <form method="post" onsubmit="submitForm(event, this)">
                 <p><?php echo $question; ?></p>
-                <img src="images/<?php echo $image; ?>">
+                <img src="images/<?php echo $image; ?>"><br>
+                <div class="reponses-container">
                 <?php foreach ($answers as $answer) { ?>
+                    <div class="reponses">
                     <input type="radio" name="answer" value="<?php echo $answer; ?>" required>
                     <label><?php echo $answer; ?></label><br>
+                    </div>
                 <?php } ?>
+                </div>
                 <input type="hidden" name="question_id" value="<?php echo $question_id; ?>">
                 <input type="submit" value="Valider">
                 <div class="feedback"></div>
             </form>
+            </div>
         <?php
             }
         } else {
@@ -148,7 +154,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
         }
         ?>
         <!-- Formulaire de réinitialisation -->
-    <form method="get">
+    <form id="reinitialisation" method="get">
         <input type="hidden" name="reset" value="1">
         <input type="submit" value="Réinitialiser le quiz">
     </form>
