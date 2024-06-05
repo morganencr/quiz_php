@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
     $correct_answer = $stmt->fetchColumn();
 
     // Détermine le feedback
-    $feedback = ($selected_answer == $correct_answer) ? "Bonne réponse!" : "Mauvaise réponse. La bonne réponse était : $correct_answer";
+    $feedback = ($selected_answer == $correct_answer) ? "Bonne réponse !" : "Mauvaise réponse. La bonne réponse était : $correct_answer";
 
      // Incrémente le score si la réponse est correcte
      if ($selected_answer == $correct_answer) {
@@ -113,7 +113,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
 <body>
     <h1>SUPER INTERGALACTICAL SPACE QUIZ</h1>
     <div id="score">
-      <img class="etoile" src="images/score.svg">
         Score: <?php echo isset($_SESSION['score']) ? $_SESSION['score'] : 0; ?>
     </div>
         <?php
@@ -132,13 +131,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
         ?>
             <div class="formulaire">
             <form method="post" onsubmit="submitForm(event, this)">
-                <p><?php echo $question; ?></p>
+                <p id="questions"><?php echo $question; ?></p>
                 <img src="images/<?php echo $image; ?>"><br>
                 <div class="reponses-container">
-                <?php foreach ($answers as $answer) { ?>
+                <?php foreach ($answers as $index => $answer) {
+                     $inputId = "answer-$question_id-$index"; 
+                ?>
                     <div class="reponses">
-                    <input type="radio" name="answer" value="<?php echo $answer; ?>" required>
-                    <label><?php echo $answer; ?></label><br>
+                    <input type="radio"  id="<?php echo $inputId; ?>" name="answer" value="<?php echo $answer; ?>" required>
+                    <label for="<?php echo $inputId; ?>">
+                    <span class="custom-radio"></span>
+                    <span><?php echo $answer; ?></span>
+                    </label><br>
                     </div>
                 <?php } ?>
                 </div>
@@ -156,7 +160,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['ajax'])) {
         <!-- Formulaire de réinitialisation -->
     <form id="reinitialisation" method="get">
         <input type="hidden" name="reset" value="1">
-        <input type="submit" value="Réinitialiser le quiz">
+        <input id="resetbutton" type="submit" value="Réinitialiser le quiz">
     </form>
 </body>
 </html>
