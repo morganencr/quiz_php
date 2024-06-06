@@ -25,6 +25,7 @@ body{
     width:120px;
     justify-content: center;
     padding-top: 6px;
+    z-index: 1000;
 }
 
 img {
@@ -170,4 +171,38 @@ input[type="submit"]:hover {
     justify-content: center;
 }
 
+@media only screen and (max-width:1094px) {
 
+    .reponses label {
+        display:unset;
+        align-items:unset;
+    }
+}
+
+@media only screen and (max-width:805px) {
+
+    h1 {
+        font-size: 4rem;
+    }
+}
+
+@media only screen and (max-width:719px) {
+
+    h1 {
+        font-size: 3em;
+    }
+}
+
+@media only screen and (max-width:543px) {
+
+    h1 {
+        font-size: 2.5em;
+    }
+}
+
+@media only screen and (max-width: 454px){
+
+    h1 {
+        font-size: 2em;
+    }
+}
